@@ -70,7 +70,7 @@ class ToolServiceProvider extends ServiceProvider
 
         Route::middleware(['nova'])
             ->namespace('Ahmedkandel\NovaS3MultipartUpload\Http\Controllers')
-            ->prefix('{tenant}/admin/nova-vendor/nova-s3-multipart-upload/{resource}/{resourceId}/{field}')
+            ->prefix('nova-vendor/nova-s3-multipart-upload/{resource}/{resourceId}/{field}')
             ->group(__DIR__ . '/../routes/api.php');
     }
 }

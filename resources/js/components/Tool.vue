@@ -29,8 +29,8 @@ export default {
     data()
     {
         return {
-            apiUri: `${location.pathname.split('/')[1]}/admin/nova-vendor/nova-s3-multipart-upload/${this.resourceName}/${this.resourceId}/${this.panel.fields[0].attribute}/files`,
-            companionUri: `${location.pathname.split('/')[1]}/admin/nova-vendor/nova-s3-multipart-upload/${this.resourceName}/${this.resourceId}/${this.panel.fields[0].attribute}/`,
+            apiUri: `/${location.pathname.split('/')[1]}/admin/nova-vendor/nova-s3-multipart-upload/${this.resourceName}/${this.resourceId}/${this.panel.fields[0].attribute}/files`,
+            companionUri: `/${location.pathname.split('/')[1]}/admin/nova-vendor/nova-s3-multipart-upload/${this.resourceName}/${this.resourceId}/${this.panel.fields[0].attribute}/`,
             withMeta: this.panel.fields[0],
             filesQueue: [],
             isSaving: false,

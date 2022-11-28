@@ -38,8 +38,8 @@ export default {
 
         initUppy()
         {
-            let locale = window.NovaUppyLocale || {strings: {}};
-                _.merge(locale.strings, this.withMeta.locale);
+            // let locale = window.NovaUppyLocale || {strings: {}};
+            //     _.merge(locale.strings, this.withMeta.locale);
 
             let plugins = [];
 
@@ -49,7 +49,7 @@ export default {
                     autoProceed: this.withMeta.autoProceed || false,
                     allowMultipleUploadBatches: this.withMeta.allowMultipleUploads || false,
                     restrictions: {...this.withMeta.restrictions, ...this.withMeta.multipleFilesRestriction},
-                    locale: locale,
+                    // locale: locale,
                 }
             )
             .on('upload-success', (file, response) =>
@@ -77,7 +77,7 @@ export default {
             {
                 uppy.use(Webcam,
                     {
-                        title: locale.strings['Camera'] || 'Camera',
+                        title:  'Camera',
                         showVideoSourceDropdown: true,
                         showRecordingLength: true,
                     }
@@ -90,7 +90,7 @@ export default {
             {
                 uppy.use(ScreenCapture,
                     {
-                        title: locale.strings['Screencast'] || 'Screencast',
+                        title:'Screencast',
                     }
                 );
 

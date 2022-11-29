@@ -186,12 +186,14 @@ class FilesController
      */
     public function download(NovaRequest $request)
     {
+ 
         $this->init($request);
 
         $this->authorize($request, 'Download');
 
         $file = $this->files()->firstWhere('fileKey', $request->route('fileKey'));
-
+        $explode = explode('/', request()->server->get('REQUEST_URI'));
+        $file['fileKey'] = str_replace('tenant_' . $explode[1], '' , $file['fileKey'] );
         abort_unless($file && Storage::disk($this->tool->disk)->exists($file['fileKey']), 404);
 
         return [
@@ -216,7 +218,8 @@ class FilesController
         $this->authorize($request, 'Delete');
 
         $file = $this->files()->firstWhere('fileKey', $request->route('fileKey'));
-
+        $explode = explode('/', request()->server->get('REQUEST_URI'));
+        $file['fileKey'] = str_replace('tenant_' . $explode[1], '' , $file['fileKey'] );
         abort_unless($file, 404);
 
         Storage::disk($this->tool->disk)->delete($file['fileKey']);

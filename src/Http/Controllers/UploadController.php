@@ -158,7 +158,7 @@ class UploadController
         $data = [];
 
         foreach ($partNumbers as $partNumber) {
-            $data[(string) $partNumber] = $this->getSignedUrl($request, $partNumber);
+            $data[(string) $partNumber] = str_replace('http://minio:9000', 'http://hayyak-storage.test:9000', $this->getSignedUrl($request, $partNumber));
         }
 
         return [
